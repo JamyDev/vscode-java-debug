@@ -172,18 +172,19 @@ export async function getJavaHome(): Promise<string> {
 }
 
 export function getJavaExtensionAPI(progressReporter?: IProgressReporter): Thenable<any> {
-    const extension = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
-    if (!extension) {
-        throw new JavaExtensionNotEnabledError("VS Code Java Extension is not enabled.");
-    }
+    return undefined;
+    // const extension = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
+    // if (!extension) {
+    //     throw new JavaExtensionNotEnabledError("VS Code Java Extension is not enabled.");
+    // }
 
-    return new Promise<any>(async (resolve) => {
-        progressReporter?.getCancellationToken().onCancellationRequested(() => {
-            resolve(undefined);
-        });
+    // return new Promise<any>(async (resolve) => {
+    //     progressReporter?.getCancellationToken().onCancellationRequested(() => {
+    //         resolve(undefined);
+    //     });
 
-        resolve(await extension.activate());
-    });
+    //     resolve(await extension.activate());
+    // });
 }
 
 export function getJavaExtension(): vscode.Extension<any> | undefined {
@@ -191,13 +192,15 @@ export function getJavaExtension(): vscode.Extension<any> | undefined {
 }
 
 export function isJavaExtEnabled(): boolean {
-    const javaExt = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
-    return !!javaExt;
+    return false;
+    // const javaExt = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
+    // return !!javaExt;
 }
 
 export function isJavaExtActivated(): boolean {
-    const javaExt = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
-    return !!javaExt && javaExt.isActive;
+    return false;
+    // const javaExt = vscode.extensions.getExtension(JAVA_EXTENSION_ID);
+    // return !!javaExt && javaExt.isActive;
 }
 
 export function isGitBash(isIntegratedTerminal: boolean): boolean {

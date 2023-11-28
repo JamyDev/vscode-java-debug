@@ -76,7 +76,7 @@ function initializeExtension(_operationId: string, context: vscode.ExtensionCont
     initializeHotCodeReplace(context);
     initializeCodeLensProvider(context);
     initializeThreadOperations(context);
-    subscribeToJavaExtensionEvents();
+    // subscribeToJavaExtensionEvents();
 
     context.subscriptions.push(vscode.languages.registerInlineValuesProvider("java", new JavaInlineValuesProvider()));
     return {
